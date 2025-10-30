@@ -1,10 +1,14 @@
-<header class="h-full">
-    <nav class="flex justify-center p-8">
-        <ul class="flex w-2xl justify-between font-bold text-white text-lg">
-            <li>Home</li>
-            <li>About me</li>
-            <li>Projects</li>
-            <li>Contact me</li>
+<header class="fixed w-full backdrop-blur-md bg-black/2">
+    <nav class="hidden sm:flex justify-center p-8">
+        <ul class="flex gap-x-20 lg:gap-x-40 justify-between font-bold text-white">
+            <li class="text-base leading-6 hover:text-gray-400 transition-colors duration-500 cursor-pointer">Home</li>
+            <li class="text-base leading-6 text-center hover:text-gray-400 transition-colors duration-500 cursor-pointer">About me</li>
+            <li class="text-base leading-6 hover:text-gray-400 transition-colors duration-500 cursor-pointer">Projects</li>
+            <li class="text-base leading-6 text-center hover:text-gray-400 transition-colors duration-500 cursor-pointer">Contact me</li>
         </ul>
+    </nav>  
+    <nav class="sm:hidden flex ">
+        <!-- Mobile Menu -->
+         <button class="m-4 p-3 text-bold cursor-pointer">=</button>
     </nav> 
 </header>
