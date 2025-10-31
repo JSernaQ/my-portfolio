@@ -1,45 +1,43 @@
 # syntax = docker/dockerfile:1
 
-# Adjust NODE_VERSION as desired
+# Etapa base
 ARG NODE_VERSION=20.18.0
 FROM node:${NODE_VERSION}-slim AS base
 
 LABEL fly_launch_runtime="Astro"
-
-# Astro app lives here
 WORKDIR /app
+ENV NODE_ENV=production
 
-# Set production environment
-ENV NODE_ENV="production"
-
-
-# Throw-away build stage to reduce size of final image
+# Etapa de build
 FROM base AS build
 
-# Install packages needed to build node modules
+# Instalar dependencias necesarias para compilar
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python-is-python3
+    apt-get install --no-install-recommends -y build-essential python3 pkg-config && \
+    rm -rf /var/lib/apt/lists/*
 
-# Install node modules
-COPY package-lock.json package.json ./
+# Copiar dependencias y código
+COPY package*.json ./
 RUN npm ci --include=dev
 
-# Copy application code
 COPY . .
 
-# Build application
+# Compilar la aplicación (modo SSR)
 RUN npm run build
 
-# Remove development dependencies
+# Limpiar dependencias dev
 RUN npm prune --omit=dev
 
+# Etapa final: ejecutar servidor Node
+FROM base AS runner
 
-# Final stage for app image
-FROM nginx
+# Copiar solo lo necesario para producción
+COPY --from=build /app /app
 
-# Copy built application
-COPY --from=build /app/dist /usr/share/nginx/html
+EXPOSE 8080
 
-# Start the server by default, this can be overwritten at runtime
-EXPOSE 80
-CMD [ "/usr/sbin/nginx", "-g", "daemon off;" ]
+# Fly.io usa PORT automáticamente, así que lo exponemos
+ENV PORT=8080
+
+# Ejecutar el servidor generado por Astro
+CMD ["node", "./dist/server/entry.mjs"]
