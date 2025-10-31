@@ -15,7 +15,7 @@ WORKDIR /app
 COPY --from=builder /app ./
 
 # Exponemos el puerto que usa Astro
-EXPOSE 4321
+EXPOSE 80
 
 # Agregamos el flag para escuchar en todas las interfaces
-CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0"]
+CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "80"]
