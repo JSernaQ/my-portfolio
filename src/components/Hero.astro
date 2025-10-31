@@ -1,57 +1,171 @@
 <section id="hero" class="translate-y-10 md:px-32 xl:px-52 h-screen">
-    <div class="grid md:grid-cols-1 xl:grid-cols-2 xl:gap-4 h-full w-full">
+    <div class="grid lg:grid-cols-1 xl:grid-cols-2 xl:gap-4 h-full w-full">
         <div class="flex flex-col items-center justify-center">
-            <div class="sm:w-5/6 xl:w-2/3 xl:h-3/4 ">
+            <div class="sm:w-5/6 xl:w-2/3 xl:h-3/4">
                 <img
                     src="profile.png"
                     alt="profile-image"
-                    class="mx-auto rounded-full w-72 h-72 object-cover"
+                    class="animate__animated animate__zoomIn mx-auto rounded-full w-72 h-72 object-cover"
                 />
-                <h1 class="text-center text-2xl md:text-4xl font-bold text-white mt-8">
-                    Juan David Serna Quilindo
+
+                <h1
+                    class="text-center text-2xl md:text-4xl font-bold text-white mt-8"
+                >
+                    I'm - <span
+                        class="text-orange-400 hover:text-orange-500 name-text"
+                        >Juan Serna,</span
+                    >
                 </h1>
-                <p class="text-center text-lg md:text-lg text-white mt-4">
-                    DevSecOps | NodeJS | Backend Developer
+                <p
+                    class="text-center text-sm md:text-lg text-gray-300 mt-4 px-6 max-w-xl mx-auto"
+                >
+                    i'm Systems and Industrial Engineering student focused on
+                    backend development with Node.js, cybersecurity, and process
+                    automation. I enjoy building efficient and secure solutions
+                    while constantly learning and improving through every
+                    project.
                 </p>
-                <p class="text-center text-sm md:text-lg text-white mt-4">
-                    Hi, my name is <strong>Juan David Serna</strong>, i´m student
+
+                <p class="text-center text-lg md:text-xl pt-2 text-white mt-3">
+                    DevSecOps | Docker | Backend Developer
                 </p>
             </div>
         </div>
 
-        <div class="flex flex-col items-center xl:justify-center bg-amber-200">
-            <div class="relative w-3/4 h-3/4 bg-gray-800 rounded-2xl">
-                <span class="absolute h-10 w-full bg-gray-700 rounded-t-2xl"></span>
+        <div class="flex flex-col items-center xl:justify-center">
+            <div
+                class="relative w-3/4 h-80 xl:h-1/2 bg-gray-800 rounded-2xl border border-gray-700 mt-10 xl:mt-0"
+            >
+                <span class="absolute h-10 w-full bg-gray-700 rounded-t-2xl"
+                ></span>
                 <span
-                    class="absolute h-4 w-4 rounded-full translate-y-3 translate-x-3 bg-red-400
-                    transition-all duration-500 active:scale-125
+                    class="absolute h-4 w-4 rounded-full z-50 translate-y-3 translate-x-3 bg-red-400
+                    transition-all duration-500 hover:scale-125
                     hover:bg-red-500"
                 >
                 </span>
                 <span
-                    class="absolute h-4 w-4 rounded-full translate-y-3 translate-x-9 bg-yellow-400
-                    transition-all duration-500 activate:scale-125
+                    class="absolute h-4 w-4 rounded-full z-50 translate-y-3 translate-x-9 bg-yellow-400
+                    transition-all duration-500 hover:scale-125
                     hover:bg-yellow-500"
                 >
                 </span>
                 <span
-                    class="absolute h-4 w-4 rounded-full translate-y-3 translate-x-15 bg-green-400
-                    transition-all duration-500 activate:scale-125
+                    class="absolute h-4 w-4 rounded-full z-50 translate-y-3 translate-x-15 bg-green-400
+                    transition-all duration-500 hover:scale-125
                     hover:bg-green-500"
                 >
                 </span>
                 <span
-                    class="absolute top-0 h-10 w-full text-sm md:text-base font-bold text-center pt-2.5 translate-x-1 md:pt-1.5"
+                    class="absolute top-0 h-10 w-full z-10 text-sm md:text-base font-bold text-center pt-2.5 translate-x-1 md:pt-1.5"
                 >
-                juan_serna.cmd
+                    juan_serna.cmd
                 </span>
-            
-                <div class="absolute mt-10 h-1/2 w-full bg-amber-200/5">
-                    
-                </div>
-            
-            </div>
 
+                <div class="absolute mt-14 pl-5 h-1/2 w-full font-mono">
+                    <p>
+                        <span id="text-line1" class="text-green-400"
+                            >juan@portfolio:~$</span
+                        >
+                        <span id="line1"></span>
+                    </p>
+                    <p>
+                        <span id="response1" class="text-orange-400 hidden"
+                            >→ Access granted</span
+                        >
+                    </p>
+                    <p>
+                        <span id="text-line2" class="text-green-400 hidden"
+                            >juan@portfolio:~$</span
+                        >
+                        <span id="line2"></span>
+                    </p>
+                    <p>
+                        <span id="response2" class="text-blue-400 hidden"
+                            >→ Node.js, Python, DevSecOps, SQL...</span
+                        >
+                    </p>
+                    <p>
+                        <span id="text-line3" class="text-green-400 hidden"
+                            >juan@portfolio:~$</span
+                        >
+                        <span id="line3"></span>
+                    </p>
+                    <p>
+                        <span id="response3" class="text-purple-400 hidden"
+                            >→ Running...</span
+                        >
+                    </p>
+                    <p>
+                        <span id="text-line4" class="text-green-400 hidden"
+                            >juan@portfolio:~$</span
+                        >
+                        <span id="line4"></span>
+                    </p>
+                    <p>
+                        <span id="response4" class="text-yellow-400 hidden"
+                            >→ Building...</span
+                        >
+                    </p>
+                </div>
+                <div
+                    class="absolute w-full bottom-0 rounded-b-2xl z-20 h-10 bg-gray-900"
+                >
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+<script>
+    import { set } from "astro:schema";
+
+    const lines = [
+        "sudo become-legend",
+        "skills --list",
+        "system status",
+        "build project",
+    ];
+
+    let currentLine = 0;
+    let charIndex = 0;
+    const typingSpeed = 80;
+    const delayBetweenLines = 1800;
+
+    function lineType() {
+        let lineElement = document.getElementById(`line${currentLine + 1}`);
+        let currentText = lines[currentLine];
+        console.log(charIndex, ",", currentText.length);
+
+        if (lineElement && charIndex < currentText.length) {
+            lineElement.textContent += currentText.charAt(charIndex);
+            charIndex++;
+
+            setTimeout(lineType, typingSpeed);
+        } else {
+            setTimeout(() => {
+                let currentResponse = document.getElementById(
+                    `response${currentLine + 1}`,
+                );
+                currentResponse?.classList.remove("hidden");
+                setTimeout(() => {
+                    let currentTextLine = document.getElementById(
+                        `text-line${currentLine + 2}`,
+                    );
+                    currentTextLine?.classList.remove("hidden");
+                }, 400);
+            }, 400);
+            
+            
+            if (currentLine < lines.length) {
+                setTimeout(() => {
+                    currentLine++;
+                    charIndex = 0;
+                    lineType();
+                }, delayBetweenLines);
+            }
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", lineType);
+</script>
