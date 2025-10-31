@@ -1,0 +1,33 @@
+# Node modules y dependencias locales
+node_modules
+npm-debug.log
+yarn-error.log
+pnpm-lock.yaml
+
+# Archivos de configuración locales
+.env
+.env.*
+!.env.example
+
+# Git y control de versiones
+.git
+.gitignore
+
+# Archivos del sistema / IDE
+.DS_Store
+.vscode
+.idea
+*.swp
+*.swo
+
+# Archivos temporales
+dist/
+tmp/
+.cache/
+*.log
+
+# Archivos de test y documentación
+coverage/
+tests/
+__tests__/
+*.md
