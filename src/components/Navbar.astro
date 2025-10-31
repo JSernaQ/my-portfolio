@@ -1,9 +1,63 @@
+<style>
+
+    .ham-menu span{
+        transition: all 0.5s ease-in-out;
+    }
+
+    .ham-menu.activate span:nth-child(1){
+        transform: rotate(45deg) translate(4px, 7px);
+    }
+    
+    .ham-menu.activate span:nth-child(2){
+        opacity: 0;
+    }
+   
+    .ham-menu.activate span:nth-child(3){
+        top: 50%;
+        transform: rotate(-45deg) translate(4px, -7px);
+    }
+
+    .slide-menu{
+        translate: -500px;
+    }
+    
+    .slide-menu li{
+        transition: all 1s ease-in-out;
+    }
+    
+
+    .slide-menu.activate li:nth-child(1){
+        translate: 498px;
+        font-weight: bold;
+        transition: all 0.2s ease-in-out 0.1s;
+    }
+    
+    .slide-menu.activate li:nth-child(2){
+        translate: 498px;
+        font-weight: bold;
+        transition: all 0.3s ease-in-out 0.2s;
+    }
+    
+    .slide-menu.activate li:nth-child(3){
+        translate: 498px;
+        font-weight: bold;
+        transition: all 0.4s ease-in-out 0.3s;
+    }
+    
+    .slide-menu.activate li:nth-child(4){
+        translate: 498px;
+        font-weight: bold;
+        transition: all 0.5s ease-in-out 0.4s;
+    }
+    
+
+</style>
+
 <header class="fixed w-full backdrop-blur-md bg-black/2">
     <nav class="hidden sm:flex justify-center p-8">
         <ul
             class="flex gap-x-20 lg:gap-x-40 justify-between font-bold text-white"
         >
-           
             <a
                 class="relative text-base leading-6 hover:text-gray-400 transition-colors duration-500 cursor-pointer
                     after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0
@@ -14,7 +68,7 @@
             </a>
             <a
                 class="relative text-base leading-6 text-center hover:text-gray-400 transition-colors duration-500 cursor-pointer
-                    after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 
+                    after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0
                     after:bg-gray-400 after:transition-all after:duration-500
                     hover:after:w-full"
             >
@@ -22,7 +76,7 @@
             </a>
             <a
                 class="relative text-base leading-6 hover:text-gray-400 transition-colors duration-500 cursor-pointer
-                    after:absolute after:h-[2px] after:left-0 after:bottom-0 after:w-0 
+                    after:absolute after:h-[2px] after:left-0 after:bottom-0 after:w-0
                     after:bg-gray-400 after:transition-all after:duration-500
                     hover:after:w-full"
             >
@@ -38,9 +92,39 @@
             </a>
         </ul>
     </nav>
-    <nav class="sm:hidden flex justify-between p-8">
+    <nav class="sm:hidden flex justify-between items-center p-8">
         <!-- Mobile Menu -->
-        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
-        
+
+        <div class="relative cursor-pointer ham-menu">
+            <span class="absolute h-1 w-8 -translate-y-2 bg-gray-400"></span>
+            <span class="absolute h-1 w-8 translate-y-0 bg-gray-400"></span>
+            <span class="absolute h-1 w-8 translate-y-2 bg-gray-400"></span>
+        </div>
+
+        <h1  class="text-white font-bold">Juan Serna</h1>
     </nav>
+    <section class="absolute sm:hidden">
+        <ul class="relative w-screen flex-col space-y-2 slide-menu">
+            <li class="flex border-2 border-gray-950/10 active:bg-gray-300 items-center pl-8 h-15 rounded-r-2xl bg-gray-900/20"><a href="#home" class="flex items-center h-full w-full">Home</a></li>
+            <li class="flex border-2 border-gray-950/10 active:bg-gray-300 items-center pl-8 h-15 rounded-r-2xl bg-gray-900/20"><a href="#aboutme" class="flex items-center h-full w-full">About me</a></li>
+            <li class="flex border-2 border-gray-950/10 active:bg-gray-300 items-center pl-8 h-15 rounded-r-2xl bg-gray-900/20"><a href="#projects" class="flex items-center h-full w-full">Projects</a></li>
+            <li class="flex border-2 border-gray-950/10 active:bg-gray-300 items-center pl-8 h-15 rounded-r-2xl bg-gray-900/20"><a href="#contacme" class="flex items-center h-full w-full">Contact Me</a></li>
+        </ul>
+    </section>
 </header>
+
+<script>
+    const hamMenu = document.querySelector('.ham-menu');
+    const slideMenu = document.querySelector('.slide-menu');
+    
+    hamMenu?.addEventListener('click', () => {
+        hamMenu?.classList.toggle('activate')
+        slideMenu?.classList.toggle('activate')
+    });
+    
+    slideMenu?.addEventListener('click', () => {
+        hamMenu?.classList.remove('activate')
+        slideMenu?.classList.remove('activate')
+    });
+
+</script>
