@@ -1,23 +1,23 @@
-<section id="hero" class="translate-y-10 md:px-32 xl:px-52 h-screen">
+<section id="hero" class="md:px-32 xl:px-52 h-screen">
     <div class="grid lg:grid-cols-1 xl:grid-cols-2 xl:gap-4 h-full w-full">
-        <div class="flex flex-col items-center justify-center">
-            <div class="sm:w-5/6 xl:w-2/3 xl:h-3/4">
+        <div class="flex flex-col pt-8 md:pt-28 xl:pt-10 items-center justify-center">
+            <div class="animate__animated animate__zoomInLeft mt-16 md:mt-0 sm:w-5/6 xl:w-2/3 xl:h-3/4">
                 <img
                     src="profile.png"
                     alt="profile-image"
-                    class="animate__animated animate__zoomIn mx-auto rounded-full w-72 h-72 object-cover"
+                    class=" mx-auto rounded-full w-72 h-72 object-cover"
                 />
 
                 <h1
-                    class="text-center text-2xl md:text-4xl font-bold text-white mt-8"
+                    class="text-center text-3xl md:text-4xl font-bold text-white mt-8"
                 >
                     I'm - <span
-                        class="text-orange-400 hover:text-orange-500 name-text"
+                        class="text-orange-400 hover:text-orange-500 name-text "
                         >Juan Serna,</span
                     >
                 </h1>
                 <p
-                    class="text-center text-sm md:text-lg text-gray-300 mt-4 px-6 max-w-xl mx-auto"
+                    class="text-center text-base md:text-lg text-gray-300 mt-4 px-6 max-w-xl mx-auto"
                 >
                     i'm Systems and Industrial Engineering student focused on
                     backend development with Node.js, cybersecurity, and process
@@ -26,15 +26,15 @@
                     project.
                 </p>
 
-                <p class="text-center text-lg md:text-xl pt-2 text-white mt-3">
+                <p class="text-center text-base md:text-xl pt-2 text-white mt-3 font-semibold">
                     DevSecOps | Docker | Backend Developer
                 </p>
             </div>
         </div>
 
-        <div class="flex flex-col items-center xl:justify-center">
+        <div class="flex flex-col items-center mt-14 xl:justify-center animate__animated animate__zoomInRight pb-28">
             <div
-                class="relative w-3/4 h-80 xl:h-1/2 bg-gray-800 rounded-2xl border border-gray-700 mt-10 xl:mt-0"
+                class="relative w-5/6 h-80 xl:h-1/2 bg-gray-800 rounded-2xl border border-gray-700 "
             >
                 <span class="absolute h-10 w-full bg-gray-700 rounded-t-2xl"
                 ></span>
@@ -62,7 +62,7 @@
                     juan_serna.cmd
                 </span>
 
-                <div class="absolute mt-14 pl-5 h-1/2 w-full font-mono">
+                <div class="absolute mt-14 pl-5 h-1/2 w-full font-mono text-sm md:text-base">
                     <p>
                         <span id="text-line1" class="text-green-400"
                             >juan@portfolio:~$</span
@@ -118,7 +118,6 @@
 </section>
 
 <script>
-    import { set } from "astro:schema";
 
     const lines = [
         "sudo become-legend",
