@@ -1,0 +1,43 @@
+---
+const isProjectsPage = Astro.url.pathname === "/projects" || Astro.url.pathname.startsWith("/projects/");
+const anchor = (id) => (isProjectsPage ? `/#${id}` : `#${id}`);
+---
+
+<footer class="w-full py-10 px-8 md:px-16 border-t border-gray-950/10 backdrop-blur-md">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6 max-w-7xl mx-auto">
+        <p class="text-white font-bold text-lg">Juan Serna</p>
+        <ul class="flex flex-wrap justify-center gap-x-8 gap-y-2 font-semibold text-gray-400">
+            <li>
+                <a href={anchor("hero")} class="hover:text-green-400 transition-colors duration-500">Home</a>
+            </li>
+            <li>
+                <a href={anchor("experience")} class="hover:text-green-400 transition-colors duration-500">Experience</a>
+            </li>
+            <li>
+                <a href={anchor("projects")} class="hover:text-green-400 transition-colors duration-500">Projects</a>
+            </li>
+            <li>
+                <a href={anchor("contact-me")} class="hover:text-green-400 transition-colors duration-500">Contact</a>
+            </li>
+        </ul>
+        <div class="flex gap-x-3">
+            <a href="https://github.com/JSernaQ" target="_blank" aria-label="GitHub">
+                <img
+                    src="/github.png"
+                    alt="GitHub"
+                    class="h-10 w-10 bg-gray-800 rounded-xl p-2 hover:bg-gray-900 hover:translate-y-[-2px] transition duration-500"
+                />
+            </a>
+            <a href="https://www.linkedin.com/in/juan-david-serna-quilindo-86b613260/" target="_blank" aria-label="LinkedIn">
+                <img
+                    src="/linkedin.png"
+                    alt="LinkedIn"
+                    class="h-10 w-10 bg-gray-800 rounded-xl p-2 hover:bg-[#0865c3] hover:translate-y-[-2px] transition duration-500"
+                />
+            </a>
+        </div>
+    </div>
+    <p class="text-center text-gray-600 text-sm mt-8">
+        © {new Date().getFullYear()} Juan David Serna Quilindo. Built with Astro.
+    </p>
+</footer>

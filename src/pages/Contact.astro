@@ -1,0 +1,133 @@
+<section id="contact-me" class="md:px-32 xl:px-46 lg:pt-40 min-h-screen">
+    <div class="px-24">
+        <div class="flex mb-6">
+            <p
+                class="text-gray-400 mr-2"
+                style="font-family: 'JetBrains Mono', monospace;"
+            >
+                $
+            </p>
+            <p
+                class="text-green-500"
+                style="font-family: 'JetBrains Mono', monospace;"
+            >
+                contact --send
+            </p>
+            <span class="subtle-blink text-green-500 ml-1 bg-green-500">:)</span
+            >
+        </div>  
+        <h2 class="mb-2 text-4xl font-bold text-white">
+            Let’s build something useful.
+        </h2>
+        <p class="text-gray-400">
+            Have a project, opportunity or problem worth solving? Let’s talk.
+        </p>
+
+        <div class="flex flex-col lg:flex-row gap-x-6 gap-y-6 mt-6">
+            <div class="flex-1 bg-gray-800/40 p-6 rounded-lg flex flex-col gap-y-2 border-1 border-gray-800
+                transition duration-500 hover:shadow-md hover:shadow-gray-700/40">
+                <h3 class="text-lg font-bold text-white">Find me!</h3>
+                <a 
+                    href="https://github.com/JSernaQ" target="_blank"
+                    class="flex gap-x-2 mt-2 bg-gray-900/50 px-4 py-2 rounded border-1 border-gray-800
+                    hover:translate-x-[2px] transition duration-400
+                    hover:shadow-md hover:shadow-gray-700/20">
+                    <img src="/github.png" alt="github" class="h-6 w-6" />
+                    GitHub
+                </a>
+                <a 
+                    href="https://www.linkedin.com/in/juan-david-serna-quilindo-86b613260/" target="_blank"
+                    class="flex gap-x-2 mt-2 bg-gray-900/50 px-4 py-2 rounded border-1 border-gray-800
+                    hover:translate-x-[2px] transition duration-400
+                    hover:shadow-md hover:shadow-gray-700/20">
+                    <img src="/linkedin.png" alt="linkedin" class="h-6 w-6" />
+                    LinkedIn
+                </a>
+            </div>
+            <form
+                id="contact-form"
+                class="flex-3 bg-gray-800/40 p-6 rounded-lg flex flex-col gap-y-2 border-1 border-gray-800
+                transition duration-500 hover:shadow-md hover:shadow-gray-700/40"
+            >
+                <label for="name" class="text-gray-300 font-semibold">
+                    Name
+                </label>
+                <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    required
+                    class="bg-gray-900 border-1 border-gray-700 px-4 py-2 rounded w-full"
+                    placeholder="Your name"
+                />
+                <label for="email" class="mt-4 text-gray-300 font-semibold">
+                    Email
+                </label>
+                <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    required
+                    class="bg-gray-900 border-1 border-gray-700 px-4 py-2 rounded w-full"
+                    placeholder="you@email.com"
+                />
+                <label for="message" class="mt-4 text-gray-300 font-semibold">
+                    Message
+                </label>
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    required
+                    class="bg-gray-900 border-1 border-gray-700 px-4 py-2 rounded w-full resize-none"
+                    placeholder="Tell me what you're building..."
+                ></textarea>
+                <button
+                    type="submit"
+                    class="bg-green-500 rounded-lg px-4 py-3 mt-6 font-semibold text-black
+                    hover:bg-green-400 transition duration-500"
+                >
+                    Send Message
+                </button>
+                <p id="form-status" class="text-sm font-semibold hidden"></p>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+    import emailjs from "@emailjs/browser";
+
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("form-status");
+
+    form?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const serviceID = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID;
+        const templateID = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
+        const publicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
+
+        if (!status) return;
+
+        const params = {
+            name: form.name.value,
+            email: form.email.value,
+            message: form.message.value,
+        };
+
+        status.textContent = "Sending...";
+        status.className = "text-sm font-semibold text-gray-400";
+
+        try {
+            await emailjs.send(serviceID, templateID, params, { publicKey });
+            status.textContent = "Message sent! I'll get back to you soon.";
+            status.className = "text-sm font-semibold text-green-400";
+            form.reset();
+        } catch (error) {
+            console.error(error);
+            status.textContent = "Something went wrong. Try again or email me directly.";
+            status.className = "text-sm font-semibold text-red-400";
+        }
+    });
+</script>
