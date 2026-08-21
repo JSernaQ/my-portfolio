@@ -1,6 +1,6 @@
 ---
 const isProjectsPage = Astro.url.pathname === "/projects" || Astro.url.pathname.startsWith("/projects/");
-const anchor = (id) => (isProjectsPage ? `/#${id}` : `#${id}`);
+const anchor = (id:any) => (isProjectsPage ? `/#${id}` : `#${id}`);
 ---
 
 <style>
@@ -62,7 +62,7 @@ const anchor = (id) => (isProjectsPage ? `/#${id}` : `#${id}`);
 
 </style>
 
-<header class=" fixed w-full backdrop-blur-md bg-black/2">
+<header class="fixed w-full backdrop-blur-md bg-black/2">
     <nav class="hidden sm:flex justify-center p-8 border-b border-gray-950/10">
         <ul
             class="flex gap-x-20 lg:gap-x-40 justify-between font-bold text-white"

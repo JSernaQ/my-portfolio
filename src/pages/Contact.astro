@@ -120,7 +120,7 @@
         status.className = "text-sm font-semibold text-gray-400";
 
         try {
-            await emailjs.send(serviceID, templateID, params, { publicKey });
+            await emailjs.send(serviceID, templateID, params, publicKey);
             status.textContent = "Message sent! I'll get back to you soon.";
             status.className = "text-sm font-semibold text-green-400";
             form.reset();
