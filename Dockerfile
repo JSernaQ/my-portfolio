@@ -14,6 +14,9 @@ WORKDIR /app
 
 COPY --from=builder /app ./
 
+ENV HOST=0.0.0.0
+ENV PORT=80
+
 # Exponemos el puerto que usa Astro
 EXPOSE 80
 
