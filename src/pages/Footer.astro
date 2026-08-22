@@ -1,9 +1,9 @@
 ---
 const isProjectsPage = Astro.url.pathname === "/projects" || Astro.url.pathname.startsWith("/projects/");
-const anchor = (id) => (isProjectsPage ? `/#${id}` : `#${id}`);
+const anchor = (id: any) => (isProjectsPage ? `/#${id}` : `#${id}`);
 ---
 
-<footer class="w-full py-10 px-8 md:px-16 border-t border-gray-950/10 backdrop-blur-md">
+<footer class="w-full py-10 px-8 md:px-16 mt-12 border-t border-gray-950/10 backdrop-blur-md">
     <div class="flex flex-col md:flex-row items-center justify-between gap-6 max-w-7xl mx-auto">
         <p class="text-white font-bold text-lg">Juan Serna</p>
         <ul class="flex flex-wrap justify-center gap-x-8 gap-y-2 font-semibold text-gray-400">
