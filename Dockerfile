@@ -18,4 +18,5 @@ COPY --from=builder /app ./
 EXPOSE 80
 
 # Agregamos el flag para escuchar en todas las interfaces
-CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "80"]
+# CMD ["npm", "run", "preview", "--", "--host", "0.0.0.0", "--port", "80"]
+CMD ["node", "./dist/server/entry.mjs"]
